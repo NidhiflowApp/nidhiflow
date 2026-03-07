@@ -49,7 +49,8 @@ const Signup = () => {
     };
   }, []);
 
-  const handleSignup = async () => {
+  const handleSignup = async (e) => {
+  e.preventDefault();
 
   // ✅ ADD THIS BLOCK
   if (password !== confirmPassword) {
