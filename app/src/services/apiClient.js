@@ -4,7 +4,7 @@ import authService from "./authService";
 const baseURL =
   window.location.hostname === "localhost"
     ? "http://localhost:5000/api"
-    : `http://${window.location.hostname}:5000/api`;
+    : "https://nidhiflow-backend.onrender.com/api";
 
 const apiClient = axios.create({
   baseURL,
@@ -31,13 +31,9 @@ apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
     if (error.response && error.response.status === 401) {
-      // Token expired or invalid
       authService.logout();
-
-      // Force redirect to login
       window.location.href = "/login";
     }
-
     return Promise.reject(error);
   }
 );
