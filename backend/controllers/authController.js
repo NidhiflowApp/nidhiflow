@@ -46,12 +46,8 @@ const newUser = await User.create({
   isVerified: false,
 });
 
-// Send verification email
-try {
-  await sendVerificationEmail(email, verificationToken);
-} catch (emailError) {
-  console.error("EMAIL ERROR:", emailError);
-}
+// TEMP: Disable email sending
+console.log("Verification token:", verificationToken);
 
     // Generate JWT
     const token = jwt.sign(
