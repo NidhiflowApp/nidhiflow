@@ -12,7 +12,9 @@ const {
 // ==========================
 exports.registerUser = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+const name = req.body.name.trim();
+const email = req.body.email.trim().toLowerCase();
+const password = req.body.password;
 
 if (!name || !email || !password) {
       return res.status(400).json({ message: "All fields are required" });
@@ -96,7 +98,8 @@ try {
 // ==========================
 exports.loginUser = async (req, res) => {
   try {
-    const { email, password } = req.body;
+const email = req.body.email.trim().toLowerCase();
+const password = req.body.password;
 
     // Basic validation
     if (!email || !password) {
