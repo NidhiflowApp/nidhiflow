@@ -1,9 +1,7 @@
 const nodemailer = require("nodemailer");
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
+  service: "gmail",
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
@@ -14,7 +12,7 @@ const transporter = nodemailer.createTransport({
 // VERIFY EMAIL
 // ==========================
 const sendVerificationEmail = async (email, token) => {
-  const verificationUrl = `http://localhost:5000/api/auth/verify/${token}`;
+  const verificationUrl = `${process.env.BACKEND_URL}/api/auth/verify/${token}`;
 
   const mailOptions = {
   from: `"NidhiFlow" <${process.env.EMAIL_USER}>`,
@@ -84,7 +82,7 @@ and our team will respond within <b>48 hours</b>.
 // RESET PASSWORD EMAIL
 // ==========================
 const sendResetPasswordEmail = async (email, resetToken) => {
-  const resetUrl = `http://localhost:3000/reset-password/${resetToken}`;
+  const resetUrl = `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
 
   const mailOptions = {
     from: `"NidhiFlow" <${process.env.EMAIL_USER}>`,
