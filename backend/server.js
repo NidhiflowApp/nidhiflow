@@ -33,7 +33,8 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "http://192.168.0.102:3000"
+      "http://192.168.0.102:3000",
+      "https://nidhiflow-frontend.onrender.com"
     ],
     credentials: true,
   })
