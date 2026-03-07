@@ -45,7 +45,11 @@ const newUser = await User.create({
 });
 
 // Send verification email
-await sendVerificationEmail(email, verificationToken);
+try {
+  await sendVerificationEmail(email, verificationToken);
+} catch (emailError) {
+  console.error("EMAIL ERROR:", emailError);
+}
 
     // Generate JWT
     const token = jwt.sign(
@@ -213,7 +217,7 @@ exports.verifyEmail = async (req, res) => {
 
   <script>
     setTimeout(function() {
-      window.location.href = "http://localhost:3000/login";
+      window.location.href = "${process.env.FRONTEND_URL}/login";
     }, 5000);
   </script>
 
@@ -233,9 +237,9 @@ exports.verifyEmail = async (req, res) => {
 
     <p>You will be redirected to the login page in <strong>5 seconds</strong>.</p>
 
-    <a class="btn" href="http://localhost:3000/login">
-      Go to Login
-    </a>
+    <a class="btn" href="${process.env.FRONTEND_URL}/login">
+  Go to Login
+</a>
   </div>
 
 </body>
@@ -281,7 +285,11 @@ exports.forgotPassword = async (req, res) => {
     await user.save();
 
 // Send reset email
-await sendResetPasswordEmail(email, resetToken);
+try {
+  await sendResetPasswordEmail(email, resetToken);
+} catch (emailError) {
+  console.error("RESET EMAIL ERROR:", emailError);
+}
 
 res.json({
   message: "If this email exists, a reset link has been sent."
