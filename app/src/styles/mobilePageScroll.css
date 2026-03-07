@@ -1,0 +1,29 @@
+/* Enable page scroll ONLY for mobile dashboard */
+@media (max-width: 768px) {
+
+  .mobile-dashboard{
+    min-height:100vh;
+    overflow-y:auto;
+  }
+
+  body{
+    overflow-y:auto;
+  }
+
+}
+
+
+
+/* Enable page scroll for mobile dashboard */
+
+.mobile-dashboard{
+  min-height:100vh;
+  overflow-y:auto;
+  padding-bottom:40px;
+}
+
+/* smooth mobile scrolling */
+.mobile-dashboard{
+  -webkit-overflow-scrolling:touch;
+}
+

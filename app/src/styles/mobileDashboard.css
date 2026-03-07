@@ -1,0 +1,409 @@
+/* ==============================
+   MOBILE DASHBOARD
+============================== */
+
+.mobile-dashboard {
+  padding: 8px 10px;
+  padding-bottom: 80px;
+}
+/* ==============================
+   TOP SECTION (KPI + CATEGORY)
+============================== */
+
+.mobile-top-section {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* ==============================
+   KPI COLUMN
+============================== */
+
+.mobile-kpi-column {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.mobile-kpi-card {
+  padding: 8px;
+  min-height: 47px;
+  border-radius: 14px;
+  text-align: center;
+  background: linear-gradient(145deg, #0f1f3a, #0b172b);
+}
+
+.mobile-kpi-card p {
+  font-size: 8px;
+  margin: 0 0 4px 0;
+  opacity: 0.7;
+}
+
+.mobile-kpi-card h4 {
+  font-size: 13px;
+  margin: 0;
+}
+
+/* ==============================
+   CATEGORY COLUMN
+============================== */
+
+.mobile-category-column {
+  width: 75%;
+  display: flex;
+}
+
+/* ==============================
+   CATEGORY CARD
+============================== */
+
+.category-card {
+  flex: 1;
+  padding: 6px 12px 10px 12px;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+}
+
+.category-title {
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  margin: 0 0 6px 0;
+}
+
+.category-header-row,
+.category-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  align-items: center;
+}
+
+.category-header-row {
+  font-size: 8px;
+  font-weight: 500;
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+
+.category-row {
+  font-size: 9px;
+  padding: 4px 0;
+  line-height: 1;
+}
+
+.category-name {
+  font-size: 9px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.category-plan,
+.category-actual {
+  text-align: center;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+/* ==============================
+   COLORS
+============================== */
+
+.green { color: #00ffae; }
+.red { color: #ff4d4d; }
+.blue { color: #4da6ff; }
+
+/* ==============================
+   INCOME EXPENSE TABLE (MOBILE FIX)
+============================== */
+
+/* spacing below category */
+
+
+/* ===== HEADER LAYOUT (HORIZONTAL) ===== */
+
+
+
+/* Small chart icon top-right */
+
+
+/* Hide text, show icon only */
+.mobile-dashboard .desktop-text {
+  display: none;
+}
+
+.mobile-dashboard .mobile-icon {
+  display: inline;
+  font-size: 16px;
+}
+
+/* ===== EDIT & DELETE BELOW HEADER ===== */
+
+
+
+
+/* ===== TABLE SCROLL ===== */
+
+
+
+.mobile-dashboard .expense-table {
+  min-width: 600px;
+}
+
+.mobile-dashboard .expense-table th,
+.mobile-dashboard .expense-table td {
+  font-size: 8px;
+  padding: 4px 6px;
+  white-space: nowrap;
+  line-height: 1.1;
+}
+
+/* ==============================
+   INCOME HEADER - MOBILE FIX
+============================== */
+
+/* Keep header visible */
+.mobile-dashboard .table-header {
+  display: block !important;
+}
+
+
+
+/* Chart icon top right */
+.mobile-dashboard .insight-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4px 6px;
+  font-size: 16px;
+}
+
+/* Hide text, show icon */
+.mobile-dashboard .desktop-text {
+  display: none;
+}
+
+.mobile-dashboard .mobile-icon {
+  display: inline;
+}
+
+/* Edit & Delete row */
+.mobile-dashboard .income-expense-actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+}
+
+.mobile-dashboard .income-expense-actions .action-btn {
+  flex: 1;
+}
+
+/* FORCE insight button visible in mobile */
+
+
+/* Ensure header is relative for positioning */
+
+
+/* Hide text, show icon */
+.mobile-dashboard .desktop-text {
+  display: none !important;
+}
+
+.mobile-dashboard .mobile-icon {
+  display: inline !important;
+}
+/* Header layout - clean flex */
+.mobile-dashboard .income-expense-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Small chart icon */
+.mobile-dashboard .insight-btn {
+  width: auto;
+  padding: 4px 8px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hide text, show only icon */
+.mobile-dashboard .desktop-text {
+  display: none;
+}
+
+.mobile-dashboard .mobile-icon {
+  display: inline;
+  font-size: 18px;
+}
+
+.mobile-dashboard .income-expense-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-dashboard .insight-btn {
+  font-size: 18px;
+  padding: 4px 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Hide desktop header inside mobile */
+.mobile-dashboard .table-header {
+  display: none !important;
+}
+
+/* Mobile header */
+.mobile-income-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.mobile-income-header h3 {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.mobile-income-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.mobile-income-icons button {
+  background: transparent;
+  border: 1px solid rgba(0, 191, 255, 0.4);
+  border-radius: 8px;
+  padding: 4px 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
+/* ============================= */
+/* ===== MOBILE ADD MODAL ===== */
+/* ============================= */
+
+.mobile-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 16px;
+}
+
+.mobile-modal {
+  width: 92%;
+  max-width: 420px;
+  background: linear-gradient(145deg, #0f172a, #1e293b);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.6);
+  animation: modalSlideUp 0.25s ease-out;
+}
+
+.mobile-modal h3 {
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* ===== INPUTS ===== */
+
+.mobile-modal input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 12px;
+  border: 1px solid #334155;
+  background-color: #0f172a;
+  color: #fff;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.mobile-modal input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+}
+
+/* ===== BUTTONS ===== */
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.modal-actions button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.modal-actions button:first-child {
+  background-color: #334155;
+  color: #fff;
+}
+
+.modal-actions button:first-child:hover {
+  background-color: #475569;
+}
+
+.modal-actions button:last-child {
+  background-color: #16a34a;
+  color: #fff;
+}
+
+.modal-actions button:last-child:hover {
+  background-color: #15803d;
+}
+
+/* ===== ANIMATION ===== */
+
+@keyframes modalSlideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .category-title,
+  .income-expense-title {
+    font-family: "Playfair Display", serif;
+    font-weight: 600;
+  }
+
+}
+

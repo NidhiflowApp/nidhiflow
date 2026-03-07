@@ -1,0 +1,64 @@
+/* ===============================
+   BUDGET LAYOUT ROOT
+=============================== */
+
+.budget-layout-bg {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #0b0f19;
+}
+
+.budget-layout-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.budget-header {
+  position: relative;
+  z-index: 1000;
+}
+
+.budget-main-grid {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===================================
+   MOBILE FIX - FORCE SINGLE COLUMN
+   =================================== */
+
+@media (max-width: 768px) {
+
+  .budget-layout-container {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 12px;
+  }
+
+  .budget-main-grid {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .left-layout,
+  .right-panel {
+    width: 100% !important;
+  }
+
+  .kpi-row {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .budget-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+
+  .budget-actions {
+    flex-wrap: wrap !important;
+  }
+
+}
