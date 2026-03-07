@@ -1,18 +1,8 @@
-const nodemailer = require("nodemailer");
-const dns = require("dns");
+const { Resend } = require("resend");
 
-// Force IPv4
-dns.setDefaultResultOrder("ipv4first");
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+
 
 // ==========================
 // VERIFY EMAIL
@@ -81,7 +71,12 @@ and our team will respond within <b>48 hours</b>.
 `,
   };
 
-  await transporter.sendMail(mailOptions);
+await resend.emails.send({
+  from: "NidhiFlow <nidhiflow.app@gmail.com>",
+  to: email,
+  subject: mailOptions.subject,
+  html: mailOptions.html,
+});
 };
 
 // ==========================
@@ -106,7 +101,12 @@ const sendResetPasswordEmail = async (email, resetToken) => {
     `,
   };
 
-  await transporter.sendMail(mailOptions);
+  await resend.emails.send({
+  from: "NidhiFlow <nidhiflow.app@gmail.com>",
+  to: email,
+  subject: mailOptions.subject,
+  html: mailOptions.html,
+});
 };
 
 // ==========================
@@ -150,7 +150,12 @@ const sendMonthlyReportEmail = async (
     attachments: attachments,
   };
 
-  await transporter.sendMail(mailOptions);
+  await resend.emails.send({
+  from: "NidhiFlow <nidhiflow.app@gmail.com>",
+  to: email,
+  subject: mailOptions.subject,
+  html: mailOptions.html,
+});
 };
 
 module.exports = {
