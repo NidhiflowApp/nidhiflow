@@ -7,8 +7,7 @@ const register = async (name, email, password, whatsappNumber) => {
  const response = await apiClient.post("/auth/register", {
   name,
   email,
-  password,
-  whatsappNumber,
+  password
 });
 
   if (response.data.token) {
