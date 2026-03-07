@@ -11,6 +11,7 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [time, setTime] = useState("");
   const [date, setDate] = useState("");
 
@@ -56,13 +57,25 @@ const Signup = () => {
     return;
   }
 
-  try {
-    await authService.register(name, email, password);
-    alert("Signup successful ✅");
-    navigate("/dashboard");
-  } catch (error) {
-    alert(error.response?.data?.message || "Signup failed ❌");
-  }
+try {
+
+  setLoading(true);
+
+  await authService.register(name, email, password);
+
+  alert("Account created ✅ Please check your email to verify your account.");
+
+  navigate("/login");
+
+} catch (error) {
+
+  alert(error.response?.data?.message || "Signup failed ❌");
+
+} finally {
+
+  setLoading(false);
+
+}
 };
   return (
     <div className="app-bg">
@@ -124,7 +137,9 @@ const Signup = () => {
     {showConfirmPassword ? "🙈" : "👁️"}
   </span>
 </div>
-        <button onClick={handleSignup}>Create Account</button>
+        <button onClick={handleSignup} disabled={loading}>
+  {loading ? "Creating..." : "Create Account"}
+</button>
 
         <div className="link">
           Already have an account? <Link to="/login">Login</Link>
