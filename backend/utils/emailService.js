@@ -72,7 +72,7 @@ and our team will respond within <b>48 hours</b>.
   };
 
 await resend.emails.send({
-  from: "NidhiFlow <nidhiflow.app@gmail.com>",
+  from: "NidhiFlow <onboarding@resend.dev>",
   to: email,
   subject: mailOptions.subject,
   html: mailOptions.html,
@@ -102,7 +102,7 @@ const sendResetPasswordEmail = async (email, resetToken) => {
   };
 
   await resend.emails.send({
-  from: "NidhiFlow <nidhiflow.app@gmail.com>",
+  from: "NidhiFlow <onboarding@resend.dev>",
   to: email,
   subject: mailOptions.subject,
   html: mailOptions.html,
@@ -151,7 +151,7 @@ const sendMonthlyReportEmail = async (
   };
 
   await resend.emails.send({
-  from: "NidhiFlow <nidhiflow.app@gmail.com>",
+  from: "NidhiFlow <onboarding@resend.dev>",
   to: email,
   subject: mailOptions.subject,
   html: mailOptions.html,
