@@ -1,8 +1,46 @@
+const nodemailer = require("nodemailer");
 const { Resend } = require("resend");
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// Gmail transporter (development)
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
 
+// detect environment
+const isProduction = process.env.NODE_ENV === "production";
+
+// common email sender
+const sendEmail = async (to, subject, html) => {
+
+  if (isProduction) {
+
+    // Production → Resend
+    await resend.emails.send({
+      from: "NidhiFlow <onboarding@resend.dev>",
+      to,
+      subject,
+      html,
+    });
+
+  } else {
+
+    // Development → Gmail
+    await transporter.sendMail({
+      from: `"NidhiFlow" <${process.env.EMAIL_USER}>`,
+      to,
+      subject,
+      html,
+    });
+
+  }
+
+};
 
 // ==========================
 // VERIFY EMAIL
@@ -71,12 +109,7 @@ and our team will respond within <b>48 hours</b>.
 `,
   };
 
-await resend.emails.send({
-  from: "NidhiFlow <onboarding@resend.dev>",
-  to: email,
-  subject: mailOptions.subject,
-  html: mailOptions.html,
-});
+await sendEmail(email, mailOptions.subject, mailOptions.html);
 };
 
 // ==========================
@@ -101,12 +134,7 @@ const sendResetPasswordEmail = async (email, resetToken) => {
     `,
   };
 
-  await resend.emails.send({
-  from: "NidhiFlow <onboarding@resend.dev>",
-  to: email,
-  subject: mailOptions.subject,
-  html: mailOptions.html,
-});
+  await sendEmail(email, mailOptions.subject, mailOptions.html);
 };
 
 // ==========================
@@ -150,12 +178,7 @@ const sendMonthlyReportEmail = async (
     attachments: attachments,
   };
 
-  await resend.emails.send({
-  from: "NidhiFlow <onboarding@resend.dev>",
-  to: email,
-  subject: mailOptions.subject,
-  html: mailOptions.html,
-});
+ await sendEmail(email, mailOptions.subject, mailOptions.html);
 };
 
 module.exports = {

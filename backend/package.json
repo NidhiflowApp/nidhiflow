@@ -21,7 +21,7 @@
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.1.6",
     "node-cron": "^4.2.1",
-    "nodemailer": "^8.0.1",
+    "nodemailer": "^8.0.2",
     "puppeteer": "^24.37.5",
     "resend": "^6.9.3"
   },
