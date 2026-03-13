@@ -45,72 +45,78 @@ const sendEmail = async (to, subject, html) => {
 // ==========================
 // VERIFY EMAIL
 // ==========================
-const sendVerificationEmail = async (email, token) => {
-  const verificationUrl = `${process.env.BACKEND_URL}/api/auth/verify/${token}`;
 
-  const mailOptions = {
-  from: `"NidhiFlow" <${process.env.EMAIL_USER}>`,
-  to: email,
-  replyTo: "nidhiflow.app@gmail.com",
-  subject: "Verify Your Email - NidhiFlow",
-  text: "Welcome to NidhiFlow. Please verify your email to activate your account.",
-html: `
-<div style="font-family: Arial, sans-serif; max-width:600px; margin:auto; padding:20px; border:1px solid #eee; border-radius:8px;">
+const sendVerificationEmail = async () => {
+  console.log("Verification email disabled");
+  return true;
+};
 
-  <div style="text-align:center; margin-bottom:20px;">
-    <h1 style="color:#2c3e50;">NidhiFlow</h1>
-    <p style="color:#888;">Smart Personal Finance Manager</p>
-  </div>
+// const sendVerificationEmail = async (email, token) => {
+//   const verificationUrl = `${process.env.BACKEND_URL}/api/auth/verify/${token}`;
 
-  <h2>Welcome to NidhiFlow 🎉</h2>
+//   const mailOptions = {
+//   from: `"NidhiFlow" <${process.env.EMAIL_USER}>`,
+//   to: email,
+//   replyTo: "nidhiflow.app@gmail.com",
+//   subject: "Verify Your Email - NidhiFlow",
+//   text: "Welcome to NidhiFlow. Please verify your email to activate your account.",
+// html: `
+// <div style="font-family: Arial, sans-serif; max-width:600px; margin:auto; padding:20px; border:1px solid #eee; border-radius:8px;">
 
-  <p>Thank you for signing up!</p>
-  <p>Please click the button below to verify your email and activate your account.</p>
+//   <div style="text-align:center; margin-bottom:20px;">
+//     <h1 style="color:#2c3e50;">NidhiFlow</h1>
+//     <p style="color:#888;">Smart Personal Finance Manager</p>
+//   </div>
 
-  <div style="text-align:center; margin:20px 0;">
-    <a href="${verificationUrl}" target="_blank"
-       style="background:#4CAF50;color:white;padding:12px 22px;text-decoration:none;border-radius:6px;font-weight:bold;">
-       Verify Email
-    </a>
-  </div>
+//   <h2>Welcome to NidhiFlow 🎉</h2>
 
-  <p>Once your account is activated, you can start managing your finances with ease.</p>
+//   <p>Thank you for signing up!</p>
+//   <p>Please click the button below to verify your email and activate your account.</p>
 
-  <h3>With NidhiFlow you can:</h3>
+//   <div style="text-align:center; margin:20px 0;">
+//     <a href="${verificationUrl}" target="_blank"
+//        style="background:#4CAF50;color:white;padding:12px 22px;text-decoration:none;border-radius:6px;font-weight:bold;">
+//        Verify Email
+//     </a>
+//   </div>
 
-  <ul>
-    <li>Track your income and expenses in one place</li>
-    <li>Get a clear financial overview with smart dashboards</li>
-    <li>Manage budget categories easily</li>
-    <li>Monitor your monthly spending patterns</li>
-    <li>Receive a monthly financial report with Excel and PDF attachments</li>
-    <li>Stay in control of your personal finances</li>
-  </ul>
+//   <p>Once your account is activated, you can start managing your finances with ease.</p>
 
-  <p>If you did not create this account, please ignore this email.</p>
-  <hr style="margin:25px 0">
+//   <h3>With NidhiFlow you can:</h3>
 
-<p style="font-size:13px;color:#777;text-align:center;">
-<b>We value your feedback.</b><br>
-Have questions, feedback, or found something that can be improved?<br>
-Contact us at 
-<a href="mailto:nidhiflow.app@gmail.com">nidhiflow.app@gmail.com</a>,
-and our team will respond within <b>48 hours</b>.
-</p>
+//   <ul>
+//     <li>Track your income and expenses in one place</li>
+//     <li>Get a clear financial overview with smart dashboards</li>
+//     <li>Manage budget categories easily</li>
+//     <li>Monitor your monthly spending patterns</li>
+//     <li>Receive a monthly financial report with Excel and PDF attachments</li>
+//     <li>Stay in control of your personal finances</li>
+//   </ul>
 
-  <hr style="margin:30px 0">
+//   <p>If you did not create this account, please ignore this email.</p>
+//   <hr style="margin:25px 0">
 
-  <p style="text-align:center;color:#888;font-size:12px;">
-    NidhiFlow — Track Smart. Save Smart. Grow Smart.
-  </p>
+// <p style="font-size:13px;color:#777;text-align:center;">
+// <b>We value your feedback.</b><br>
+// Have questions, feedback, or found something that can be improved?<br>
+// Contact us at 
+// <a href="mailto:nidhiflow.app@gmail.com">nidhiflow.app@gmail.com</a>,
+// and our team will respond within <b>48 hours</b>.
+// </p>
+
+//   <hr style="margin:30px 0">
+
+//   <p style="text-align:center;color:#888;font-size:12px;">
+//     NidhiFlow — Track Smart. Save Smart. Grow Smart.
+//   </p>
   
 
-</div>
-`,
-  };
+// </div>
+// `,
+//   };
 
-await sendEmail(email, mailOptions.subject, mailOptions.html);
-};
+// await sendEmail(email, mailOptions.subject, mailOptions.html);
+// };
 
 // ==========================
 // RESET PASSWORD EMAIL
