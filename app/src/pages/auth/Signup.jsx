@@ -52,7 +52,18 @@ const Signup = () => {
   const handleSignup = async (e) => {
   e.preventDefault();
 
-  // ✅ ADD THIS BLOCK
+  if (!name.trim()) {
+    alert("Full name is required ❌");
+    return;
+  }
+
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailPattern.test(email)) {
+    alert("Please enter a valid email address ❌");
+    return;
+  }
+
   if (password !== confirmPassword) {
     alert("Passwords do not match ❌");
     return;
@@ -64,7 +75,7 @@ try {
 
   await authService.register(name, email, password);
 
-  alert("Account created ✅ Please check your email to verify your account.");
+  alert("Account created successfully ✅ Please login.");
 
   navigate("/login");
 
