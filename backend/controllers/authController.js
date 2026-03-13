@@ -3,9 +3,12 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const {
-  sendVerificationEmail,
   sendResetPasswordEmail,
 } = require("../utils/emailService");
+// const {
+//   sendVerificationEmail,
+//   sendResetPasswordEmail,
+// } = require("../utils/emailService");
 
 // ==========================
 // REGISTER USER
@@ -35,19 +38,31 @@ if (password.length < 8) {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     // Generate verification token
-const verificationToken = crypto.randomBytes(32).toString("hex");
+// const verificationToken = crypto.randomBytes(32).toString("hex");
+
+// Email verification disabled
+const verificationToken = null;
 
     // Create user
+// const newUser = await User.create({
+//   name,
+//   email,
+//   password: hashedPassword,
+//   verificationToken,
+//   isVerified: false,
+// });
+
 const newUser = await User.create({
   name,
   email,
   password: hashedPassword,
-  verificationToken,
-  isVerified: false,
+  isVerified: true
 });
 
 // Send verification email
-await sendVerificationEmail(email, verificationToken);
+// await sendVerificationEmail(email, verificationToken);
+
+
 
     // Generate JWT
     const token = jwt.sign(
@@ -108,11 +123,15 @@ const password = req.body.password;
       return res.status(400).json({ message: "Invalid email or password" });
     }
 // Check if email is verified
-if (!user.isVerified) {
-  return res.status(401).json({
-    message: "Please verify your email before logging in."
-  });
-}
+// if (!user.isVerified) {
+//   return res.status(401).json({
+//     message: "Please verify your email before logging in."
+//   });
+// }
+
+
+
+
     // Compare password
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
