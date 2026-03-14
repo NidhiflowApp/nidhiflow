@@ -25,7 +25,8 @@ export const expenseMaster = [
   { label: "Supermarket", category: "Groceries" },
 
   /* ===== TRANSPORT ===== */
-  { label: "Petrol", category: "Transport" },
+  { label: "Petrol - Bike", category: "Transport" },
+  { label: "Petrol - Car", category: "Transport" },
   { label: "Diesel", category: "Transport" },
   { label: "Bus Fare", category: "Transport" },
   { label: "Train Ticket", category: "Transport" },
