@@ -54,7 +54,7 @@ exports.getDashboard = async (req, res) => {
 
     const transactions = [
       ...incomes.map(i => ({
-        id: i._id,
+         _id: i._id,
         date: i.date,
         type: "Income",
         description: i.description,
@@ -64,7 +64,7 @@ exports.getDashboard = async (req, res) => {
         amount: i.amount,
       })),
       ...expenses.map(e => ({
-        id: e._id,
+        _id: e._id,
         date: e.date,
         type: e.category === "Investment" ? "Investment" : "Expense",
         description: e.title,
