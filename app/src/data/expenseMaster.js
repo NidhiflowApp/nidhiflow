@@ -67,8 +67,7 @@ export const expenseMaster = [
   { label: "Clothes", category: "Shopping" },
   { label: "Footwear", category: "Shopping" },
   { label: "Accessories", category: "Shopping" },
-  { label: "Laptop Keyboard", category: "Home Appliance" },
-  { label: "Online Shopping", category: "Shopping" },
+    { label: "Online Shopping", category: "Shopping" },
 
   /* ===== EDUCATION ===== */
   { label: "School Fees", category: "Education" },
