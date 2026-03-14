@@ -19,6 +19,7 @@ export const expenseMaster = [
   { label: "Vegetables", category: "Groceries" },
   { label: "Fruits", category: "Groceries" },
   { label: "Rice", category: "Groceries" },
+  { label: "Milk", category: "Groceries" },
   { label: "Provision Store", category: "Groceries" },
   { label: "Supermarket", category: "Groceries" },
 
