@@ -64,16 +64,24 @@ const Login = () => {
 
       const response = await authService.login(email, password);
 
-      // 🔑 Adjust if backend response structure differs
-      const token = response?.token || response?.data?.token;
+// 🔑 Adjust if backend response structure differs
+const token = response?.token || response?.data?.token;
+const user = response?.user || response?.data?.user;
 
-      if (!token) {
-        throw new Error("Token not received from server");
-      }
+if (!token) {
+  throw new Error("Token not received from server");
+}
 
-      localStorage.setItem("token", token);
-      console.log("Stored token:", localStorage.getItem("token"));
-      navigate("/personal-budget", { replace: true });
+localStorage.setItem("token", token);
+
+// ⭐ Save username for greeting
+if (user?.name) {
+  localStorage.setItem("userName", user.name);
+}
+
+console.log("Stored token:", localStorage.getItem("token"));
+
+navigate("/personal-budget", { replace: true });
 
     } catch (err) {
       setError(

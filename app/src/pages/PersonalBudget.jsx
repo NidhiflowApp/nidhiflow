@@ -32,7 +32,9 @@ function useAnimatedNumber(value, duration = 600) {
 }
 
 export default function PersonalBudget({ enableActions = false }) {
+  
   const navigate = useNavigate();
+  const userName = localStorage.getItem("userName") || "User";
 
   /* -------- Date Setup -------- */
   const now = new Date();
@@ -229,7 +231,12 @@ return (
   <BudgetLayout
     header={
       <div className="budget-header">
-        <div className="budget-title">Dashboard · Personal Budget</div>
+        <div className="budget-title">
+  Hi {userName} 👋 · Dashboard · Personal Budget
+</div>
+<div className="budget-subtitle">
+  Personal Budget Dashboard
+</div>
         <div className="budget-actions">
 
           <button
