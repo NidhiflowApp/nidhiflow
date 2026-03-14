@@ -79,6 +79,9 @@ export const expenseMaster = [
   { label: "Stocks", category: "Investment" },
   { label: "PPF", category: "Investment" },
   { label: "NPS", category: "Investment" },
+  { label: "LIC", category: "Investment" },
+  { label: "SIP", category: "Investment" },
+  { label: "Post Office", category: "Investment" },
   { label: "RD / FD", category: "Investment" },
 
 
