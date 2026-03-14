@@ -32,6 +32,7 @@ export const expenseMaster = [
 
   /* ===== BILLS ===== */
   { label: "Electricity Bill", category: "Bills" },
+  { label: "EB Bill", category: "Bills" },  
   { label: "Water Bill", category: "Bills" },
   { label: "Gas Bill", category: "Bills" },
   { label: "Mobile Recharge", category: "Bills" },

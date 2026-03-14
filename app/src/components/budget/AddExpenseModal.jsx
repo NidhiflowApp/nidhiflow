@@ -5,6 +5,7 @@ import { getPersons } from "../../services/personService";
 import ManagePersonsModal from "./ManagePersonsModal";
 
 
+
 /* ===============================
    DEFAULT VALUES (PROTECTED)
 =============================== */
@@ -36,6 +37,7 @@ export default function AddExpenseModal({ onClose, onSave, editData = null }) {
 });
 const [persons, setPersons] = useState([]);
 const [showManage, setShowManage] = useState(false);
+const [suggestions, setSuggestions] = useState([]);
 
     useEffect(() => {
   const fetchPersons = async () => {
@@ -53,8 +55,19 @@ const [showManage, setShowManage] = useState(false);
   /* =====================
      Spent On handlers
   ====================== */
-  const handleSpentOnChange = (value) => {
+const handleSpentOnChange = (value) => {
   update("spentOn", value);
+
+  if (!value.trim()) {
+    setSuggestions([]);
+    return;
+  }
+
+  const filtered = expenseMaster.filter(item =>
+    item.label.toLowerCase().includes(value.toLowerCase())
+  );
+
+  setSuggestions(filtered);
 
   const match = expenseMaster.find(
     item => item.label.toLowerCase() === value.toLowerCase()
@@ -124,14 +137,34 @@ const [showManage, setShowManage] = useState(false);
           </div>
 
           <div className="field">
-            <label>Spent On</label>
-            <input
-              ref={spentOnRef}
-              type="text"
-              value={form.spentOn}
-              onChange={e => handleSpentOnChange(e.target.value)}
-            />
-          </div>
+  <label>Spent On</label>
+
+  <input
+    ref={spentOnRef}
+    type="text"
+    value={form.spentOn}
+    onChange={e => handleSpentOnChange(e.target.value)}
+  />
+
+  {suggestions.length > 0 && (
+    <div>
+      {suggestions.map((item, index) => (
+        <div
+          key={index}
+          style={{ padding: "5px", cursor: "pointer" }}
+          onClick={() => {
+  update("spentOn", item.label);
+  update("category", item.category);
+  setSuggestions([]);
+  spentOnRef.current.blur();
+}}
+        >
+          {item.label}
+        </div>
+      ))}
+    </div>
+  )}
+</div>
 
           <div className="field">
             <label>Category</label>
