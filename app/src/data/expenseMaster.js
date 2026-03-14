@@ -1,12 +1,13 @@
 export const expenseMaster = [
   /* ===== FOOD ===== */
-  { label: "Breakfast", category: "Food" },
-  { label: "Lunch", category: "Food" },
-  { label: "Dinner", category: "Food" },
-  { label: "Snacks", category: "Food" },
-  { label: "Tea / Coffee", category: "Food" },
-  { label: "Hotel Food", category: "Food" },
-  { label: "Street Food", category: "Food" },
+  { label: "Breakfast", category: "OutSide Food" },
+  { label: "Lunch", category: "OutSide Food" },
+  { label: "Dinner", category: "OutSide Food" },
+  { label: "Snacks", category: "OutSide Food" },
+  { label: "Panipoori", category: "OutSide Food" },
+  { label: "Tea / Coffee", category: "OutSide Food" },
+  { label: "Hotel Food", category: "OutSide Food" },
+  { label: "Street Food", category: "OutSide Food" },
 
   /* ===== NON-VEG ===== */
   { label: "Chicken", category: "Food - Non Veg" },
