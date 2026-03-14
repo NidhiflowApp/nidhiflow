@@ -42,6 +42,7 @@ export const expenseMaster = [
   { label: "Internet Bill", category: "Bills" },
   { label: "DTH Recharge", category: "Bills" },
   { label: "Home Loan", category: "Loan/EMI" },
+  { label: "Car Loan", category: "Loan/EMI" },
 
   /* ===== RENT & HOME ===== */
   { label: "House Rent", category: "Fixed Expense" },
