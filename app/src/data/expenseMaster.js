@@ -67,6 +67,7 @@ export const expenseMaster = [
   { label: "Clothes", category: "Shopping" },
   { label: "Footwear", category: "Shopping" },
   { label: "Accessories", category: "Shopping" },
+  { label: "Laptop Keyboard", category: "Home Appliance" },
   { label: "Online Shopping", category: "Shopping" },
 
   /* ===== EDUCATION ===== */
@@ -85,5 +86,27 @@ export const expenseMaster = [
   { label: "Post Office", category: "Investment" },
   { label: "RD / FD", category: "Investment" },
 
+  { label: "Refrigerator", category: "Home Appliance" },
+{ label: "Washing Machine", category: "Home Appliance" },
+{ label: "Microwave Oven", category: "Home Appliance" },
+{ label: "Mixer Grinder", category: "Home Appliance" },
+{ label: "Water Purifier", category: "Home Appliance" },
+{ label: "Air Conditioner", category: "Home Appliance" },
+{ label: "Air Cooler", category: "Home Appliance" },
+{ label: "Ceiling Fan", category: "Home Appliance" },
+{ label: "Table Fan", category: "Home Appliance" },
+{ label: "Electric Kettle", category: "Home Appliance" },
+{ label: "Toaster", category: "Home Appliance" },
+{ label: "Iron Box", category: "Home Appliance" },
+{ label: "Vacuum Cleaner", category: "Home Appliance" },
+{ label: "Dishwasher", category: "Home Appliance" },
+{ label: "Rice Cooker", category: "Home Appliance" },
+{ label: "Room Heater", category: "Home Appliance" },
+{ label: "Water Heater", category: "Home Appliance" },
+{ label: "AC Service", category: "Home Appliance" },
+{ label: "Washing Machine Repair", category: "Home Appliance" },
+{ label: "Refrigerator Repair", category: "Home Appliance" },
+{ label: "Water Purifier Service", category: "Home Appliance" },
+{ label: "Laptop Keyboard", category: "Home Appliance" },
 
 ];
