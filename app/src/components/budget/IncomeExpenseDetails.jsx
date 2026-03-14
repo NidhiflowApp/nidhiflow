@@ -108,10 +108,7 @@ function IncomeExpenseDetails({
               </tr>
             ) : (
               [...transactions]
-.sort((a, b) =>
-  new Date(b.date) - new Date(a.date) ||
-  new Date(b.createdAt || 0) - new Date(a.createdAt || 0)
-)
+.sort((a, b) => new Date(b._id) - new Date(a._id))
 .map((item) => {
                 const id = getId(item);
 
