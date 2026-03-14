@@ -5,6 +5,7 @@ export const expenseMaster = [
   { label: "Dinner", category: "OutSide Food" },
   { label: "Snacks", category: "OutSide Food" },
   { label: "Panipoori", category: "OutSide Food" },
+  { label: "Cool Drinks", category: "OutSide Food" },
   { label: "Tea / Coffee", category: "OutSide Food" },
   { label: "Hotel Food", category: "OutSide Food" },
   { label: "Street Food", category: "OutSide Food" },
