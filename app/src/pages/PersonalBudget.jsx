@@ -87,7 +87,7 @@ export default function PersonalBudget({ enableActions = false }) {
 
   const fetchDashboard = useCallback(async () => {
     try {
-      const token = localStorage.getItem("token");
+      
 
       const res = await apiClient.get(
   `/dashboard?year=${year}&month=${month + 1}`
@@ -110,8 +110,7 @@ export default function PersonalBudget({ enableActions = false }) {
   /* -------- Add Handlers -------- */
   const handleAddIncome = async (income) => {
     try {
-      const token = localStorage.getItem("token");
-
+      
       await apiClient.post("/income", income);
 
       fetchDashboard();
@@ -133,7 +132,7 @@ const handleAddExpense = async (expense) => {
 /* -------- FETCH CONFIG -------- */
   const fetchConfig = async () => {
   try {
-    const token = localStorage.getItem("token");
+    
 
     const res = await apiClient.get("/config");
 
@@ -388,13 +387,13 @@ return (
                   </thead>
                   <tbody>
                     {transactions.map(t => (
-                      <tr key={t.id}>
+                      <tr key={t._id}>
                         {enableActions && (
                           <td>
                             <input
                               type="checkbox"
-                              checked={selectedIds.includes(t.id)}
-                              onChange={() => handleSelect(t.id)}
+                              checked={selectedIds.includes(t._id)}
+                              onChange={() => handleSelect(t._id)}
                             />
                           </td>
                         )}

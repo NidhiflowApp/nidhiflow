@@ -139,7 +139,7 @@ export default function AddIncomeModal({
     }
 
    onSave({
-  id: editData?.id, // important for update
+  id: editData?._id, // important for update
   type: "Income",
   date: form.date,
   description: form.receivedFrom,
