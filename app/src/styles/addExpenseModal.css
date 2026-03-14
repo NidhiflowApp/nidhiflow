@@ -21,3 +21,56 @@
 
   padding-right: 36px; /* space for arrow */
 }
+/* container */
+.spent-on-field{
+  position: relative;
+}
+
+/* dropdown box */
+.suggestion-box{
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background: #0f172a;
+  border-radius: 8px;
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 1000;
+  border: 1px solid #1e293b;
+}
+
+/* each item */
+.suggestion-item{
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover{
+  background: #1e293b;
+}
+.spent-on-field{
+  position: relative;
+}
+
+.suggestion-box{
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background: #0f172a;
+  border-radius: 8px;
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 1000;
+  border: 1px solid #1e293b;
+}
+
+.suggestion-item{
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover{
+  background: #1e293b;
+}

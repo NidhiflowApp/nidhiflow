@@ -63,9 +63,11 @@ const handleSpentOnChange = (value) => {
     return;
   }
 
-  const filtered = expenseMaster.filter(item =>
+  const filtered = expenseMaster
+  .filter(item =>
     item.label.toLowerCase().includes(value.toLowerCase())
-  );
+  )
+  .slice(0,8);
 
   setSuggestions(filtered);
 
@@ -136,7 +138,7 @@ const handleSpentOnChange = (value) => {
             </div>
           </div>
 
-          <div className="field">
+          <div className="field spent-on-field">
   <label>Spent On</label>
 
   <input
@@ -147,11 +149,12 @@ const handleSpentOnChange = (value) => {
   />
 
   {suggestions.length > 0 && (
-    <div>
+  <div className="suggestion-box">
+      
       {suggestions.map((item, index) => (
         <div
-          key={index}
-          style={{ padding: "5px", cursor: "pointer" }}
+  key={index}
+  className="suggestion-item"
           onClick={() => {
   update("spentOn", item.label);
   update("category", item.category);
