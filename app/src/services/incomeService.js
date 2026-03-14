@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const API = "https://your-backend-url.onrender.com/api";
+const API = "https://budget-backend-3h2x.onrender.com/api";
 
 /* ===========================
    ADD INCOME (POST)
