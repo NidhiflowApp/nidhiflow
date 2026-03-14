@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getPersons } from "../../services/personService";
+import apiClient from "../../services/apiClient";
 
 export default function ManagePersonsModal({ onClose }) {
   const [persons, setPersons] = useState([]);
@@ -17,37 +18,30 @@ export default function ManagePersonsModal({ onClose }) {
   };
 
   // Add person (max 6)
-  const handleAdd = async () => {
-    if (!newPerson.trim()) return;
+  // Add person (max 6)
+const handleAdd = async () => {
+  if (!newPerson.trim()) return;
 
-    if (persons.length >= 6) {
-      setError("Maximum 6 persons allowed");
-      return;
-    }
+  if (persons.length >= 6) {
+    setError("Maximum 6 persons allowed");
+    return;
+  }
 
-    const response = await fetch("http://localhost:5000/api/persons", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: newPerson })
-    });
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      setError(data.message || "Error adding person");
-      return;
-    }
+  try {
+    await apiClient.post("/persons", { name: newPerson });
 
     setNewPerson("");
     setError("");
     fetchPersons();
-  };
+
+  } catch (err) {
+    setError(err.response?.data?.message || "Error adding person");
+  }
+};
 
   // Delete person
   const handleDelete = async (id) => {
-    await fetch(`http://localhost:5000/api/persons/${id}`, {
-      method: "DELETE"
-    });
+    await apiClient.delete(`/persons/${id}`);
 
     fetchPersons();
   };
