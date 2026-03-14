@@ -107,7 +107,12 @@ function IncomeExpenseDetails({
                 </td>
               </tr>
             ) : (
-              [...transactions].sort((a, b) => new Date(b.date) - new Date(a.date)).map((item) => {
+              [...transactions]
+.sort((a, b) =>
+  new Date(b.date) - new Date(a.date) ||
+  new Date(b.createdAt || 0) - new Date(a.createdAt || 0)
+)
+.map((item) => {
                 const id = getId(item);
 
                 return (
