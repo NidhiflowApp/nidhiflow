@@ -41,6 +41,7 @@ export const expenseMaster = [
   { label: "Mobile Recharge", category: "Bills" },
   { label: "Internet Bill", category: "Bills" },
   { label: "DTH Recharge", category: "Bills" },
+  { label: "Home Loan", category: "Loan/EMI" },
 
   /* ===== RENT & HOME ===== */
   { label: "House Rent", category: "Fixed Expense" },
