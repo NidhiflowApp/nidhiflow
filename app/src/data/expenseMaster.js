@@ -9,6 +9,11 @@ export const expenseMaster = [
   { label: "Tea / Coffee", category: "OutSide Food" },
   { label: "Hotel Food", category: "OutSide Food" },
   { label: "Street Food", category: "OutSide Food" },
+  { label: "Bakery Items", category: "OutSide Food" },
+{ label: "Ice Cream", category: "OutSide Food" },
+{ label: "Fast Food", category: "OutSide Food" },
+{ label: "Juice", category: "OutSide Food" },
+{ label: "Food Delivery", category: "OutSide Food" },
 
   /* ===== NON-VEG ===== */
   { label: "Chicken", category: "Food - Non Veg" },
@@ -23,6 +28,19 @@ export const expenseMaster = [
   { label: "Milk", category: "Groceries" },
   { label: "Provision Store", category: "Groceries" },
   { label: "Supermarket", category: "Groceries" },
+  { label: "Cooking Oil", category: "Groceries" },
+{ label: "Sugar", category: "Groceries" },
+{ label: "Dal / Pulses", category: "Groceries" },
+{ label: "Spices", category: "Groceries" },
+{ label: "Flour / Atta", category: "Groceries" },
+{ label: "Bread", category: "Groceries" },
+{ label: "Curd / Yogurt", category: "Groceries" },
+{ label: "Snacks Packet", category: "Groceries" },
+{ label: "Cleaning Items", category: "Groceries" },
+{ label: "Dishwash Liquid", category: "Groceries" },
+{ label: "Soap / Shampoo", category: "Groceries" },
+{ label: "Toothpaste", category: "Groceries" },
+{ label: "Laundry Detergent", category: "Groceries" },
 
   /* ===== TRANSPORT ===== */
   { label: "Petrol - Bike", category: "Transport" },
@@ -33,6 +51,11 @@ export const expenseMaster = [
   { label: "Auto / Taxi", category: "Transport" },
   { label: "Bike Service", category: "Transport" },
   { label: "Car Service", category: "Transport" },
+  { label: "Parking Fee", category: "Transport" },
+{ label: "Toll Gate", category: "Transport" },
+{ label: "Vehicle Insurance", category: "Transport" },
+{ label: "Bike Repair", category: "Transport" },
+{ label: "Car Wash", category: "Transport" },
 
   /* ===== BILLS ===== */
   { label: "Electricity Bill", category: "Bills" },
@@ -44,6 +67,10 @@ export const expenseMaster = [
   { label: "DTH Recharge", category: "Bills" },
   { label: "Home Loan", category: "Loan/EMI" },
   { label: "Car Loan", category: "Loan/EMI" },
+  { label: "Credit Card Bill", category: "Bills" },
+{ label: "Gas Cylinder", category: "Bills" },
+{ label: "Apartment Maintenance", category: "Bills" },
+{ label: "Garbage Collection", category: "Bills" },
 
   /* ===== RENT & HOME ===== */
   { label: "House Rent", category: "Fixed Expense" },
@@ -55,6 +82,9 @@ export const expenseMaster = [
   { label: "Medicines", category: "Health" },
   { label: "Medical Tests", category: "Health" },
   { label: "Hospital Charges", category: "Health" },
+  { label: "Health Insurance", category: "Health" },
+{ label: "First Aid", category: "Health" },
+{ label: "Pharmacy", category: "Health" },
 
   /* ===== ENTERTAINMENT ===== */
   { label: "Movie Ticket", category: "Entertainment" },
@@ -62,12 +92,23 @@ export const expenseMaster = [
   { label: "Amazon Prime", category: "Entertainment" },
   { label: "Hotstar", category: "Entertainment" },
   { label: "Outing", category: "Entertainment" },
+  { label: "Mobile Games", category: "Entertainment" },
+{ label: "Amusement Park", category: "Entertainment" },
+{ label: "Family Trip", category: "Entertainment" },
 
   /* ===== SHOPPING ===== */
   { label: "Clothes", category: "Shopping" },
   { label: "Footwear", category: "Shopping" },
   { label: "Accessories", category: "Shopping" },
     { label: "Online Shopping", category: "Shopping" },
+    { label: "Gifts", category: "Shopping" },
+{ label: "Home Decor", category: "Shopping" },
+{ label: "Furniture", category: "Shopping" },
+{ label: "Electronics", category: "Shopping" },
+{ label: "Hair Cut", category: "Personal Care" },
+{ label: "Salon", category: "Personal Care" },
+{ label: "Cosmetics", category: "Personal Care" },
+{ label: "Gym Membership", category: "Personal Care" },
 
   /* ===== EDUCATION ===== */
   { label: "School Fees", category: "Education" },
@@ -107,5 +148,10 @@ export const expenseMaster = [
 { label: "Refrigerator Repair", category: "Home Appliance" },
 { label: "Water Purifier Service", category: "Home Appliance" },
 { label: "Laptop Keyboard", category: "Home Appliance" },
+
+{ label: "Temple Donation", category: "Others" },
+{ label: "Marriage Gift", category: "Others" },
+{ label: "Festival Expenses", category: "Others" },
+{ label: "Charity", category: "Others" },
 
 ];
