@@ -85,6 +85,7 @@ export default function AddIncomeModal({
     const filtered = incomeMaster.filter((item) =>
       item.label.toLowerCase().includes(value.toLowerCase())
     );
+    console.log("Income suggestions:", filtered);   // temporary debug
 
     setSuggestions(filtered.slice(0, 6));
     setShowDropdown(filtered.length > 0);
