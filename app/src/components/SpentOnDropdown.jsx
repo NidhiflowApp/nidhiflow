@@ -8,13 +8,14 @@ export default function SpentOnDropdown({
 }) {
   if (!anchorRef?.current) return null;
 
-  const rect = anchorRef.current.getBoundingClientRect();
+  const rect = anchorRef.current?.getBoundingClientRect();
+if (!rect) return null;
 
   return createPortal(
     <div
       className="portal-dropdown"
       style={{
-        position: "absolute",
+        position: "fixed",
         top: rect.bottom + 6 + window.scrollY,
         left: rect.left + window.scrollX,
         width: rect.width,
