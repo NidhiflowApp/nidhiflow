@@ -23,8 +23,7 @@ export default function AddIncomeModal({
   onClose,
   onSave,
   editData = null,
-  receivedByOptions = ["Self"],
-  
+    
 })
  {
   const today = new Date().toISOString().split("T")[0];
@@ -41,7 +40,6 @@ export default function AddIncomeModal({
   useEffect(() => {
   const fetchPersons = async () => {
     const data = await getPersons();
-    console.log("Persons loaded:", data); // 👈 add this line
     setPersons(data);
   };
 
@@ -50,7 +48,7 @@ export default function AddIncomeModal({
 
 
  const [form, setForm] = useState({
-  date: editData?.date?.split("T")[0] || today,
+  date: editData?.date ? editData.date.split("T")[0] : today,
   receivedFrom: editData?.description || "",
   category: editData?.category || "Income",
   receivedBy: editData?.paidBy || "",
@@ -89,7 +87,7 @@ export default function AddIncomeModal({
     );
 
     setSuggestions(filtered.slice(0, 6));
-    setShowDropdown(true);
+    setShowDropdown(filtered.length > 0);
     setActiveIndex(0);
   };
 
