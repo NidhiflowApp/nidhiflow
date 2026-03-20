@@ -108,17 +108,35 @@ const netSavings = monthlyReport.summary.netSavings || 0;
 
 const pct = (val) => (income ? Math.round((val / income) * 100) : 0);
 
+// 👉 Split expense into Fixed & Variable
+let fixedExpense = 0;
+let variableExpense = 0;
+
+(dashboardData?.transactions || []).forEach((t) => {
+  if (t.type === "Expense") {
+    // 👉 CHANGE THIS BASED ON YOUR CATEGORY
+    const fixedCategories = ["Bills", "EMI", "Rent"];
+
+if (fixedCategories.includes(t.category)) {
+      fixedExpense += t.amount;
+    } else {
+      variableExpense += t.amount;
+    }
+  }
+});
+
+
 const categories = [
   {
     name: "Fixed Expenses",
     planned: planned.fixedPercent,
-    actual: pct(expense),
+    actual: pct(fixedExpense),
     dot: "red-dot"
   },
   {
     name: "Variable Expenses",
     planned: planned.variablePercent,
-    actual: pct(expense),
+    actual: pct(variableExpense),
     dot: "orange-dot"
   },
   {
