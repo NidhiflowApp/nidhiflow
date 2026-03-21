@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import "../styles/chartsDashboard.css";
 import "../styles/personalBudget.css";
 
-
+const BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 /* Charts */
 import MonthlyExpenseTrend from "../components/charts/MonthlyExpenseTrend";
@@ -66,7 +66,7 @@ export default function ChartsDashboard() {
       const token = localStorage.getItem("token");
 
       const res = await fetch(
-        `http://localhost:5000/api/financial-insights?month=${selectedMonth}`,
+        `${BASE_URL}/api/financial-insights?month=${selectedMonth}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -94,7 +94,7 @@ useEffect(() => {
       const token = localStorage.getItem("token");
 
       const res = await fetch(
-        `http://localhost:5000/api/budget-planning?month=${selectedMonth}`,
+        `${BASE_URL}/api/budget-planning?month=${selectedMonth}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -133,7 +133,7 @@ const formattedTrend =
       const token = localStorage.getItem("token");
 
       const res = await fetch(
-        "http://localhost:5000/api/investments/summary-last-6-months",
+        `${BASE_URL}/api/investments/summary-last-6-months`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
