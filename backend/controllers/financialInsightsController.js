@@ -93,8 +93,22 @@ const categoryMapping = {
 const categoryMap = {};
 
 expenses.forEach((exp) => {
-  const mainCategory =
+  let mainCategory = "Variable Expenses";
+
+// ✅ PRIORITY: use nature
+if (exp.nature === "fixed") {
+  mainCategory = "Fixed Expenses";
+} 
+else if (exp.nature === "emergency") {
+  mainCategory = "Emergency Fund";
+} 
+else if (exp.category === "Investment") {
+  mainCategory = "Savings & Investment";
+} 
+else {
+  mainCategory =
     categoryMapping[exp.category] || "Variable Expenses";
+}
 
   categoryMap[mainCategory] =
     (categoryMap[mainCategory] || 0) + exp.amount;

@@ -27,10 +27,11 @@ export default function AddExpenseModal({ onClose, onSave, editData = null }) {
      STATE
   =============================== */
 
-  const [form, setForm] = useState({
+const [form, setForm] = useState({
   date: editData?.date?.split("T")[0] || today,
   spentOn: editData?.description || "",
   category: editData?.category || "Auto",
+  nature: editData?.nature || "",   // 🔥 ADD THIS
   paidBy: editData?.paidBy || "",
   paymentMode: editData?.paymentMode || "UPI",
   amount: editData?.amount || ""
@@ -76,8 +77,9 @@ const handleSpentOnChange = (value) => {
   );
 
   if (match) {
-    update("category", match.category);
-  }
+  update("category", match.category);
+  update("nature", match.nature);   // 🔥 ADD THIS
+}
 };
 
   /* =====================
@@ -99,6 +101,7 @@ const handleSpentOnChange = (value) => {
   description: form.spentOn,
   amount: Number(form.amount),
   category: form.category,
+nature: form.nature,   // 🔥 ADD THIS
   paidBy: form.paidBy,
   paymentMode: form.paymentMode,
   date: form.date
