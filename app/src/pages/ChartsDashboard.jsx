@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import "../styles/chartsDashboard.css";
 import "../styles/personalBudget.css";
 
-const BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
+
 
 /* Charts */
 import MonthlyExpenseTrend from "../components/charts/MonthlyExpenseTrend";
@@ -13,6 +13,8 @@ import InvestmentOverviewDonut from "../components/charts/InvestmentOverviewDonu
 import GroupBudgetVsActual from "../components/charts/GroupBudgetVsActual";
 import TopCategories from "../components/charts/TopCategories";
 import PaidByPie from "../components/charts/PaidByPie";
+
+const BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 export default function ChartsDashboard() {
   const navigate = useNavigate();
