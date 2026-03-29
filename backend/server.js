@@ -31,7 +31,11 @@ const app = express();
 // =========================
 app.use(
   cors({
-    origin: "https://nidhiflow-frontend.onrender.com",
+    origin: [
+      "http://localhost:3000",
+      "http://192.168.0.102:3000",
+      "https://nidhiflow-frontend.onrender.com"
+    ],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
