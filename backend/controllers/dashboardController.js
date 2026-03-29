@@ -168,21 +168,37 @@ exports.getCategorySplit = async (req, res) => {
       user: userId,
       date: { $gte: startDate, $lte: endDate },
     });
-
+console.log("CATEGORY SPLIT DATA 👉", expenses);
     const total = expenses.reduce((s, e) => s + e.amount, 0);
 
  const map = {};
 
 expenses.forEach(e => {
-  let mainCategory = "Variable Expenses"; // default
+  const nature = (e.nature || "").toLowerCase();
+  const category = (e.category || "").toLowerCase();
+  const title = (e.title || "").toLowerCase();
 
-  if (e.nature === "fixed") {
+  let mainCategory = "Variable Expenses";
+
+  if (nature === "fixed") {
     mainCategory = "Fixed Expenses";
-  } else if (e.nature === "emergency") {
+  } 
+  else if (
+    nature === "emergency" ||
+    category.includes("health") ||
+    title.includes("hospital") ||
+    title.includes("doctor")
+  ) {
     mainCategory = "Emergency Fund";
-  } else if (e.nature === "investment") {
+  } 
+  else if (nature === "investment") {
     mainCategory = "Investments";
-  } else if (e.nature === "wants") {
+  } 
+  else if (
+    nature === "wants" ||
+    category.includes("shopping") ||
+    category.includes("entertainment")
+  ) {
     mainCategory = "Wants / Buffer";
   }
 
@@ -224,6 +240,7 @@ exports.getInvestments = async (req, res) => {
       date: { $gte: startDate, $lte: endDate },
     });
 
+ 
     const total = investments.reduce((s, i) => s + i.amount, 0);
 
     res.json([

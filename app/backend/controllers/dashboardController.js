@@ -168,13 +168,39 @@ exports.getCategorySplit = async (req, res) => {
       date: { $gte: startDate, $lte: endDate },
     });
 
+    console.log("DATA 👉", expenses);  
+
     const total = expenses.reduce((s, e) => s + e.amount, 0);
 
     const map = {};
-    expenses.forEach(e => {
-      if (!map[e.category]) map[e.category] = 0;
-      map[e.category] += e.amount;
-    });
+ expenses.forEach(e => {
+ const nature = (e.nature || "").toLowerCase();
+const category = (e.category || "").toLowerCase();
+
+  let mainCategory = "Variable Expenses"; // default
+
+ if (nature.includes("fixed")) {
+  mainCategory = "Fixed Expenses";
+} else if (
+  nature.includes("emergency") ||
+  category.includes("medical") ||
+  category.includes("hospital")
+) {
+  mainCategory = "Emergency Fund";
+} else if (nature.includes("investment")) {
+  mainCategory = "Investments";
+} else if (
+  nature.includes("wants") ||
+  nature.includes("buffer") ||
+  category.includes("shopping") ||
+  category.includes("entertainment")
+) {
+  mainCategory = "Wants / Buffer";
+}
+
+  if (!map[mainCategory]) map[mainCategory] = 0;
+  map[mainCategory] += e.amount;
+});
 
     const result = Object.keys(map).map(cat => ({
       label: cat,

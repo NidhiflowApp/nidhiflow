@@ -140,6 +140,31 @@ let variableExpense = 0;
   }
 });
 
+let emergencyTotal = 0;
+let wantsTotal = 0;
+
+(dashboardData?.transactions || []).forEach((t) => {
+  if (t.type === "Expense") {
+    const name = (t.description || "").toLowerCase();
+    const category = (t.category || "").toLowerCase();
+
+    if (
+      category.includes("health") ||
+      name.includes("hospital") ||
+      name.includes("doctor")
+    ) {
+      emergencyTotal += t.amount;
+    }
+
+    if (
+      category.includes("shopping") ||
+      category.includes("entertainment")
+    ) {
+      wantsTotal += t.amount;
+    }
+  }
+});
+
 const categories = [
   {
     name: "Fixed Expenses",
@@ -156,7 +181,7 @@ const categories = [
   {
     name: "Emergency Fund",
     planned: planned.emergencyPercent,
-    actual: 0,
+    actual: pct(emergencyTotal),
     dot: "blue-dot"
   },
   {
@@ -168,7 +193,7 @@ const categories = [
   {
     name: "Wants / Buffer",
     planned: planned.wantsPercent,
-    actual: 0,
+    actual: pct(wantsTotal),
     dot: "pink-dot"
   }
 ];
