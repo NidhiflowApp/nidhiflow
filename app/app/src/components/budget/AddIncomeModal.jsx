@@ -205,6 +205,14 @@ export default function AddIncomeModal({
                 form.receivedFrom && setShowDropdown(true)
               }
             />
+            {showDropdown && suggestions.length > 0 && (
+  <SpentOnDropdown
+    anchorRef={receivedFromRef}
+    items={suggestions}
+    activeIndex={activeIndex}
+    onSelect={selectSuggestion}
+  />
+)}
           </div>
 
           {/* CATEGORY */}
@@ -293,15 +301,7 @@ export default function AddIncomeModal({
       </div>
     </div>
 
-    {/* AUTOCOMPLETE */}
-    {showDropdown && suggestions.length > 0 && (
-      <SpentOnDropdown
-        anchorRef={receivedFromRef}
-        items={suggestions}
-        activeIndex={activeIndex}
-        onSelect={selectSuggestion}
-      />
-    )}
+   
 {showManage && (
   <ManagePersonsModal
     onClose={async () => {

@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 
 export default function SpentOnDropdown({
@@ -6,20 +7,31 @@ export default function SpentOnDropdown({
   onSelect,
   activeIndex,
 }) {
-  if (!anchorRef?.current) return null;
 
-  const rect = anchorRef.current?.getBoundingClientRect();
+
+ const [rect, setRect] = useState(null);
+
+useEffect(() => {
+  if (anchorRef?.current) {
+    const r = anchorRef.current.getBoundingClientRect();
+    setRect(r);
+  }
+}, [anchorRef, items]);
+
 if (!rect) return null;
 
   return createPortal(
     <div
       className="portal-dropdown"
       style={{
-        position: "fixed",
-        top: rect.bottom + 6 + window.scrollY,
-        left: rect.left + window.scrollX,
-        width: rect.width,
-      }}
+  position: "fixed",
+  top: rect.bottom + 6,
+  left: Math.max(rect.left, 20),
+  width: rect.width,
+  zIndex: 999999999,
+  pointerEvents: "auto",
+  
+}}
     >
       {items.map((item, idx) => (
         <div

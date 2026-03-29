@@ -358,3 +358,19 @@
 .dropdown-item.active {
   background: #1a2336;
 }
+
+.portal-dropdown {
+  background: #0b1220;
+  border: 1px solid #2c3447;
+  border-radius: 8px;
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 99999;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.dropdown-item:hover,
+.dropdown-item.active {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #ffffff;
+}
