@@ -1,0 +1,360 @@
+/* =========================
+   OVERLAY
+========================= */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+/* =========================
+   BASE MODAL CARD (GLASS LOOK ONLY)
+========================= */
+.modal-card {
+  border-radius: 26px;
+  background: linear-gradient(180deg, #0f172a, #020617);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.9);
+
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+
+  padding: 0;
+}
+
+/* =========================
+   ADD EXPENSE – COMPACT PREMIUM
+========================= */
+.add-expense-modal {
+  width: 420px;
+  max-width: 94vw;
+  height: auto;
+  max-height: none;
+}
+
+/* =========================
+   ADD INCOME – LARGE GLASS PANEL
+========================= */
+.add-income-modal {
+  width: 520px;
+  max-width: 95vw;
+  max-height: 85vh;
+  overflow-y: auto;   /* MOVE SCROLL HERE */
+}
+
+
+/* =========================
+   CONFIGURATION MODAL – LARGE
+========================= */
+
+
+/* =========================
+   HEADER (PRIMARY – Add Income / Expense)
+========================= */
+.modal-card h3 {
+  padding: 16px 22px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+/* =========================
+   BODY
+========================= */
+.modal-body {
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  flex: 1;
+  overflow: visible;  /* IMPORTANT */
+}
+
+/* =========================
+   FORM ROWS
+========================= */
+.row.two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* =========================
+   FIELD
+========================= */
+.field {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.field label {
+  font-size: 11px;
+  color: #cbd5f5;
+  margin-bottom: 6px;
+}
+
+.field input,
+.field select {
+  height: 42px;
+  padding: 0 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 13px;
+  outline: none;
+}
+
+.field input:disabled {
+  opacity: 0.8;
+}
+
+/* =========================
+   SELECT FIX
+========================= */
+.field select option {
+  background: #0f172a;
+  color: #ffffff;
+}
+
+.field select:focus {
+  border-color: rgba(34, 197, 94, 0.6);
+}
+
+/* =========================
+   FOOTER
+========================= */
+.modal-footer {
+  padding: 14px 22px;
+  display: flex;
+  gap: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+  justify-content: space-between;
+
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn {
+  flex: 1;
+  height: 44px;
+  border-radius: 14px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn.ghost {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #021a08;
+}
+
+/* =========================
+   AUTOCOMPLETE / DROPDOWN
+========================= */
+.portal-dropdown {
+  background: linear-gradient(180deg, #0f172a, #020617);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 10000;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95);
+}
+
+.dropdown-item {
+  padding: 10px 14px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  color: #e5e7eb;
+  font-size: 14px;
+}
+
+.dropdown-item small {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.dropdown-item:hover,
+.dropdown-item.active {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+}
+
+/* Scrollbar */
+.portal-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.portal-dropdown::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+}
+
+/* =========================
+   PREMIUM LABEL + ICON ACTIONS
+========================= */
+.label-row.premium {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.label-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.08);
+  color: #e5e7eb;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.08),
+    0 4px 10px rgba(0,0,0,0.35);
+
+  transition: all 0.2s ease;
+}
+
+.icon-btn.add:hover {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(34,197,94,0.25);
+  transform: translateY(-1px);
+}
+
+.icon-btn.remove:hover {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(239,68,68,0.25);
+  transform: translateY(-1px);
+}
+
+.icon-btn:active {
+  transform: scale(0.95);
+}
+
+/* =========================
+   ADD INCOME RECEIVER MODAL
+========================= */
+.modal-container.small {
+  backdrop-filter: blur(18px);
+  background: linear-gradient(
+    180deg,
+    rgba(15,23,42,0.95),
+    rgba(2,6,23,0.95)
+  );
+}
+/* =========================
+   FIX: REMOVE BLUE CLOSE BAR
+   (Add Income Receiver ONLY)
+========================= */
+
+/* Hide any button inside header for small modal */
+.modal-container.small .modal-header button {
+  display: none !important;
+}
+
+/* Safety: prevent primary button styles in header */
+.modal-container.small .modal-header .btn,
+.modal-container.small .modal-header .btn.primary {
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+/* =========================
+   ADD INCOME – HEADER FIX
+========================= */
+.add-income-modal > h3 {
+  padding: 16px 22px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+/* RECEIVER TAG CONTAINER */
+.receiver-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* SINGLE TAG */
+.receiver-tag {
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #2a4cff, #4cc9f0);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: white;
+}
+
+/* ACTIVE SELECTED */
+.active-tag {
+  font-weight: 600;
+}
+
+/* REMOVE BUTTON */
+.tag-remove {
+  background: transparent;
+  border: none;
+  color: white;
+  margin-left: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.portal-dropdown {
+  position: absolute;
+  background: #0b1220;
+  border: 1px solid #2c3447;
+  border-radius: 8px;
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 99999;   /* 🔥 very important */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+.dropdown-item {
+  padding: 10px 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+}
+
+.dropdown-item:hover,
+.dropdown-item.active {
+  background: #1a2336;
+}

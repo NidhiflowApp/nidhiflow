@@ -1,0 +1,61 @@
+@media (max-width: 768px) {
+
+  /* ===== INCOME & EXPENSE SECTION ONLY ===== */
+
+  /* Remove desktop glass styling */
+  .glass-card.table-card {
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin-top: 12px !important;
+  }
+
+  /* Hide desktop table completely */
+  .expense-table {
+    display: none !important;
+  }
+
+  /* Hide desktop buttons */
+  .table-actions,
+  .insight-btn {
+    display: none !important;
+  }
+
+  /* Compact section title */
+  .section-title {
+    font-size: 10px !important;
+    margin-bottom: 6px !important;
+  }
+
+  /* Compact mobile transaction list */
+  .mobile-transaction-list {
+    display: block !important;
+  }
+
+  .mobile-transaction-card {
+    background: transparent !important;
+    padding: 4px 0 !important;
+    margin-bottom: 6px !important;
+    font-size: 8px !important;
+  }
+
+  .mobile-top-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 8px !important;
+    font-weight: 500;
+  }
+
+  .mobile-description {
+    font-size: 8px !important;
+    margin-top: 2px;
+  }
+
+  .mobile-meta {
+    font-size: 8px !important;
+    opacity: 0.6;
+    margin-top: 2px;
+  }
+
+}
+

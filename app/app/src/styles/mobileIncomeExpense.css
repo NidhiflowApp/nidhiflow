@@ -1,0 +1,456 @@
+.mobile-income-section {
+  display: flex;
+  flex-direction: column;
+  height: 420px;
+}
+
+.mobile-income-scroll {
+  overflow-y: auto;
+  flex: 1;
+  padding-right: 4px;
+}
+
+.mobile-income-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.mobile-income-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 4px;
+}
+
+.mobile-income-scroll {
+  max-height: 48vh;
+  overflow-y: auto;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.mobile-income-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.mobile-income-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.25);
+  border-radius: 4px;
+}
+
+.mobile-income-section {
+  width: 100%;
+}
+
+/* Glass card container */
+.mobile-glass {
+  display: flex;
+  flex-direction: column;
+  height: 55vh;     /* card height */
+  
+   overflow-y: auto;
+}
+
+/* header area */
+.mobile-header {
+  flex-shrink: 0;
+}
+
+/* scroll area */
+.mobile-transaction-list {
+  flex: 1;
+  overflow-y: auto;
+  padding-top: 8px;
+}
+
+.mobile-glass {
+  padding: 16px;
+}
+
+.mobile-glass {
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(20, 30, 60, 0.6);
+  backdrop-filter: blur(10px);
+}
+
+/* header */
+.mobile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.mobile-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* action buttons */
+.mobile-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-btn {
+  border: 1px solid rgba(0,200,255,0.4);
+  background: transparent;
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* scroll area */
+.mobile-transaction-list {
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+/* transaction card */
+.mobile-transaction-card {
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* row layout */
+.mobile-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* checkbox area */
+.mobile-checkbox-area {
+  flex-shrink: 0;
+}
+
+.mobile-checkbox {
+  width: 18px;
+  height: 18px;
+}
+
+/* left content */
+.mobile-left {
+  flex: 1;
+}
+
+.mobile-date {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.mobile-description {
+  font-weight: 500;
+}
+
+.mobile-meta {
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* amount */
+.mobile-amount {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.mobile-amount.green {
+  color: #00d26a;
+}
+
+.mobile-amount.red {
+  color: #ff5c5c;
+}
+
+.mobile-amount.blue {
+  color: #4aa3ff;
+}
+
+/* selected row */
+.selected-row {
+  border: 1px solid #00c8ff;
+}
+
+/* empty */
+.mobile-empty {
+  text-align: center;
+  padding: 20px;
+}
+/* Transaction Wrapper */
+.mobile-transaction-wrapper{
+  width:100%;
+}
+
+/* Scrollable List */
+.mobile-transaction-list{
+  height:55vh;
+  overflow-y:auto;
+  padding-right:4px;
+}
+/* Transaction Card */
+.mobile-transaction-card{
+  background:rgba(20,30,60,0.5);
+  border-radius:14px;
+  padding:12px;
+  margin-bottom:10px;
+  border:1px solid rgba(255,255,255,0.05);
+}
+
+/* Selected Row */
+.selected-row{
+  border:1px solid #4da3ff;
+  box-shadow:0 0 10px rgba(77,163,255,0.3);
+}
+
+/* Row Layout */
+.mobile-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+
+/* Checkbox */
+.mobile-checkbox-area{
+  display:flex;
+  align-items:center;
+}
+
+.mobile-checkbox{
+  width:18px;
+  height:18px;
+}
+
+/* Left Section */
+.mobile-left{
+  flex:1;
+}
+
+/* Date */
+.mobile-date{
+  font-size:14px;
+  color:#cfd8ff;
+}
+
+/* Description */
+.mobile-description{
+  font-size:15px;
+  font-weight:600;
+  color:#ffffff;
+}
+
+/* Meta */
+.mobile-meta{
+  font-size:12px;
+  color:#9ca3af;
+}
+
+/* Amount */
+.mobile-amount{
+  font-size:16px;
+  font-weight:600;
+}
+
+.mobile-amount.green{
+  color:#22c55e;
+}
+
+.mobile-amount.red{
+  color:#ef4444;
+}
+
+.mobile-amount.blue{
+  color:#60a5fa;
+}
+
+/* Empty State */
+.mobile-empty{
+  text-align:center;
+  padding:20px;
+  color:#9ca3af;
+}
+
+/* Transaction Scroll Area */
+.mobile-transaction-list{
+  max-height:45vh;
+  overflow-y:auto;
+  padding-right:4px;
+}
+
+/* Glass Card */
+.mobile-transaction-card{
+  background: rgba(20,30,60,0.6);
+  border-radius:14px;
+  padding:12px;
+  margin-bottom:10px;
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+/* Row Layout */
+.transaction-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+/* Checkbox */
+.checkbox-col{
+  width:30px;
+}
+
+/* Content */
+.content-col{
+  flex:1;
+}
+
+/* Date */
+.transaction-date{
+  font-size:12px;
+  color:#cbd5e1;
+}
+
+/* Description */
+.transaction-desc{
+  font-size:15px;
+  font-weight:600;
+  color:white;
+}
+
+/* Meta Info */
+.transaction-meta{
+  font-size:12px;
+  color:#9ca3af;
+}
+
+/* Amount */
+.mobile-amount{
+  font-size:16px;
+  font-weight:600;
+}
+
+.mobile-amount.income{
+  color:#22c55e;
+}
+
+.mobile-amount.expense{
+  color:#ef4444;
+}
+
+.mobile-amount.investment{
+  color:#60a5fa;
+}
+
+/* Selected row */
+.selected-row{
+  border:1px solid #3b82f6;
+}
+
+/* Empty message */
+.mobile-empty{
+  text-align:center;
+  padding:20px;
+  color:#9ca3af;
+}
+
+
+.tx-main {
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.tx-meta {
+  font-size: 13px;
+  color: #9aa4b2;
+  margin-top: 2px;
+}
+
+
+
+.tx-line1 {
+  font-size: 12px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.tx-line2 {
+  font-size: 10px;
+  color: #9aa4b2;
+  margin-top: 2px;
+}
+.mobile-row {
+  display: flex;
+  align-items: center;   /* fix vertical alignment */
+  gap: 10px;
+}
+.mobile-checkbox {
+  width: 18px;
+  height: 18px;
+  margin-top: 0;
+  flex-shrink: 0;
+}
+
+.mobile-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.mobile-transaction-card {
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  background: rgba(255,255,255,0.02);
+}
+
+.mobile-income-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.mobile-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mobile-checkbox {
+  width: 18px;
+  height: 18px;
+  margin-top: 0;
+  flex-shrink: 0;
+}
+
+.mobile-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-transaction-card {
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  background: rgba(255,255,255,0.02);
+}
+
+.mobile-income-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+.mobile-income-header h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 26px;
+  font-weight: 600;
+}
+.section-title {
+  font-family: "Playfair Display", serif !important;
+  font-weight: 600 !important;
+  font-size: 20px !important;
+}

@@ -39,6 +39,8 @@ const [form, setForm] = useState({
 const [persons, setPersons] = useState([]);
 const [showManage, setShowManage] = useState(false);
 const [suggestions, setSuggestions] = useState([]);
+const [highlightIndex, setHighlightIndex] = useState(-1);
+
 
     useEffect(() => {
   const fetchPersons = async () => {
@@ -58,6 +60,7 @@ const [suggestions, setSuggestions] = useState([]);
   ====================== */
 const handleSpentOnChange = (value) => {
   update("spentOn", value);
+  setHighlightIndex(-1);
 
   if (!value.trim()) {
     setSuggestions([]);
@@ -80,6 +83,37 @@ const handleSpentOnChange = (value) => {
   update("category", match.category);
   update("nature", match.nature);   // 🔥 ADD THIS
 }
+};
+
+const handleKeyDown = (e) => {
+  if (!suggestions.length) return;
+
+  if (e.key === "ArrowDown") {
+  e.preventDefault();
+  setHighlightIndex(prev =>
+    prev === -1 ? 0 : (prev < suggestions.length - 1 ? prev + 1 : 0)
+  );
+}
+
+  if (e.key === "ArrowUp") {
+    e.preventDefault();
+    setHighlightIndex(prev =>
+      prev > 0 ? prev - 1 : suggestions.length - 1
+    );
+  }
+
+  if (e.key === "Enter") {
+    if (highlightIndex >= 0) {
+      const selected = suggestions[highlightIndex];
+
+      update("spentOn", selected.label);
+      update("category", selected.category);
+      update("nature", selected.nature);
+
+      setSuggestions([]);
+      setHighlightIndex(-1);
+    }
+  }
 };
 
   /* =====================
@@ -145,22 +179,24 @@ nature: form.nature,   // 🔥 ADD THIS
   <label>Spent On</label>
 
   <input
-    ref={spentOnRef}
-    type="text"
-    value={form.spentOn}
-    onChange={e => handleSpentOnChange(e.target.value)}
-  />
+  ref={spentOnRef}
+  type="text"
+  value={form.spentOn}
+  onChange={e => handleSpentOnChange(e.target.value)}
+  onKeyDown={handleKeyDown}
+/>
 
   {suggestions.length > 0 && (
   <div className="suggestion-box">
       
       {suggestions.map((item, index) => (
-        <div
-  key={index}
-  className="suggestion-item"
+  <div
+    key={index}
+    className={`suggestion-item ${index === highlightIndex ? "active-item" : ""}`}
           onClick={() => {
   update("spentOn", item.label);
   update("category", item.category);
+  update("nature", item.nature);
   setSuggestions([]);
   spentOnRef.current.blur();
 }}

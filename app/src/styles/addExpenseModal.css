@@ -74,3 +74,7 @@
 .suggestion-item:hover{
   background: #1e293b;
 }
+.active-item {
+  background-color: #22c55e;
+  color: black;
+}

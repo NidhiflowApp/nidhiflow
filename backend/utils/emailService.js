@@ -1,7 +1,7 @@
 const nodemailer = require("nodemailer");
-const { Resend } = require("resend");
+// const { Resend } = require("resend");
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Gmail transporter (development)
 const transporter = nodemailer.createTransport({
@@ -18,17 +18,10 @@ const isProduction = process.env.NODE_ENV === "production";
 // common email sender
 const sendEmail = async (to, subject, html) => {
 
-  if (isProduction) {
-
-    // Production → Resend
-    await resend.emails.send({
-      from: "NidhiFlow <onboarding@resend.dev>",
-      to,
-      subject,
-      html,
-    });
-
-  } else {
+if (isProduction) {
+  console.log("📧 Email skipped in production (Resend disabled)");
+  return;
+} else {
 
     // Development → Gmail
     await transporter.sendMail({

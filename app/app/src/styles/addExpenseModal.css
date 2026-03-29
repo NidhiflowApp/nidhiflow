@@ -1,0 +1,76 @@
+.modal-card::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-card::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+/* =========================
+   CLEAN CUSTOM SELECT ARROW
+========================= */
+.field select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='12' viewBox='0 0 24 24' width='12' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 12px;
+
+  padding-right: 36px; /* space for arrow */
+}
+/* container */
+.spent-on-field{
+  position: relative;
+}
+
+/* dropdown box */
+.suggestion-box{
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background: #0f172a;
+  border-radius: 8px;
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 1000;
+  border: 1px solid #1e293b;
+}
+
+/* each item */
+.suggestion-item{
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover{
+  background: #1e293b;
+}
+.spent-on-field{
+  position: relative;
+}
+
+.suggestion-box{
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  background: #0f172a;
+  border-radius: 8px;
+  max-height: 220px;
+  overflow-y: auto;
+  z-index: 1000;
+  border: 1px solid #1e293b;
+}
+
+.suggestion-item{
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover{
+  background: #1e293b;
+}

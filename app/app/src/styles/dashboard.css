@@ -1,0 +1,785 @@
+/* =========================
+   FULL PAGE BASE
+========================= */
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.dashboard-container {
+  height: 100vh;          /* changed */
+  overflow-y: auto;
+  display: flex;          /* added */
+  flex-direction: column; /* added */
+
+  padding: 30px 25px;
+  box-sizing: border-box;
+
+  /* Background image */
+  background:
+    linear-gradient(
+  rgba(0, 0, 0, 0.75),
+  rgba(0, 0, 0, 0.85)
+),
+    url("../assets/images/finance-bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+
+
+/* =========================
+   HEADER SECTION
+========================= */
+
+.dashboard-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-title {
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* =========================
+   ACTION BUTTONS CONTAINER
+========================= */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+/* =========================
+   PREMIUM GLASS BUTTON BASE
+========================= */
+
+.glass-btn,
+.dropdown {
+  position: relative;
+  height: 46px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+
+  cursor: pointer;
+  transition: all 0.35s ease;
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.15);
+}
+
+/* =========================
+   ULTRA PREMIUM HOVER
+========================= */
+
+.glass-btn:hover,
+.dropdown:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 191, 255, 0.25),
+    rgba(0, 140, 255, 0.18)
+  );
+
+  border: 1px solid rgba(0, 191, 255, 0.9);
+
+  box-shadow:
+    0 0 14px rgba(0, 191, 255, 0.7),
+    0 0 30px rgba(0, 191, 255, 0.5),
+    0 12px 40px rgba(0, 0, 0, 0.55);
+
+  transform: translateY(-3px) scale(1.04);
+}
+
+/* Pressed Effect */
+.glass-btn:active {
+  transform: translateY(0px) scale(1);
+  box-shadow:
+    0 4px 15px rgba(0, 0, 0, 0.5),
+    inset 0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* Reflective Shine Layer */
+.glass-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: linear-gradient(
+    120deg,
+    rgba(255,255,255,0.25),
+    rgba(255,255,255,0.05),
+    rgba(255,255,255,0.25)
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.glass-btn:hover::before {
+  opacity: 1;
+}
+
+/* Active Tab */
+.glass-btn.active {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* Income Accent */
+.glass-btn.income {
+  color: #00ff9d;
+}
+
+/* Expense Accent */
+.glass-btn.expense {
+  color: #ff5c5c;
+}
+
+/* Dropdown Clean */
+.dropdown {
+  appearance: none;
+  outline: none;
+}
+
+/* =========================
+   KPI SECTION
+========================= */
+
+/* =========================
+   DASHBOARD MAIN LAYOUT
+========================= */
+
+.dashboard-layout {
+  margin-top: 20px;
+  flex: 1;                /* added */
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+  align-items: stretch;
+  overflow: hidden;       /* added */
+}
+
+
+
+/* LEFT PANEL */
+
+.left-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow: hidden;     /* added */
+}
+
+.kpi-left {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* RIGHT PANEL */
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  
+}
+.category-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.kpi-right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+
+.kpi-card {
+  padding: 10px 14px;   /* reduced */
+  border-radius: 16px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+  text-align: center;   /* center everything */
+  min-height: 85px;
+}
+
+.kpi-card p {
+  font-size: 13px;
+  font-weight: 600;     /* bold */
+  margin-bottom: 6px;
+}
+
+.kpi-card h3 {
+  font-size: 20px;      /* slightly bigger */
+  margin: 0;
+  font-weight: 700;
+}
+
+
+/* =========================
+   MAIN GRID
+========================= */
+
+.dashboard-grid {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+  gap: 25px;
+}
+
+/* =========================
+   GLASS CARD BASE
+========================= */
+
+.glass-card {
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.glass-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.85),
+    0 0 25px rgba(0,191,255,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.35);
+}
+.kpi-card {
+  padding: 10px 14px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow:
+  0 12px 40px rgba(0,0,0,0.6),
+  inset 0 1px 0 rgba(255,255,255,0.15);
+  text-align: center;
+  min-height: 85px;
+
+  transition: all 0.35s ease;   /* 🔥 important */
+}
+
+.kpi-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.85),
+    0 0 25px rgba(0,191,255,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
+
+/* TABLE */
+
+.table-card table {
+  width: 100%;
+  margin-top: 15px;
+  border-collapse: collapse;
+}
+
+.table-card th,
+.table-card td {
+  padding: 8px;
+  text-align: left;
+  font-size: 13px;
+}
+
+.table-card th {
+  opacity: 0.7;
+}
+
+/* RIGHT COLUMN */
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* CATEGORY */
+
+.category-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 13px;
+}
+
+.red-bg {
+  background: rgba(255,0,0,0.15);
+  padding: 8px;
+  border-radius: 10px;
+}
+
+/* QUOTE */
+
+.quote-card {
+  text-align: center;
+  font-size: 14px;
+}
+
+.quote-card span {
+  display: block;
+  margin-top: 8px;
+  color: #00ff9d;
+}
+
+/* COLORS */
+
+.green { color: #00ff9d; }
+.red { color: #ff5c5c; }
+.blue { color: #4da6ff; }
+
+.dashboard-wrapper {
+  width: 100%;
+  flex: 1;                /* added */
+  display: flex;          /* added */
+  flex-direction: column; /* added */
+  overflow: hidden;       /* added */
+}
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+/* =========================
+   TABLE DESIGN
+========================= */
+
+.expense-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.expense-table thead th {
+  text-align: left;
+  padding: 10px 8px;
+  font-weight: 600;
+  opacity: 0.7;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.expense-table tbody td {
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Hover effect */
+.expense-table tbody tr:hover {
+  background: rgba(255,255,255,0.04);
+  transition: 0.3s ease;
+}
+
+/* =========================
+   STICKY TABLE HEADER
+========================= */
+
+.expense-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: rgba(20, 20, 20, 0.7);
+backdrop-filter: blur(12px);
+ 
+}
+
+.expense-table thead th {
+  position: sticky;
+  top: 0;
+}
+
+
+
+/* Make Amount right aligned */
+.expense-table td:last-child,
+.expense-table th:last-child {
+  text-align: right;
+}
+
+/* Better spacing inside glass card */
+.table-card {
+  padding: 28px;
+  display: flex;          /* added */
+  flex-direction: column; /* added */
+  overflow: hidden;       /* added */
+}
+
+.table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: nowrap; /* Prevent wrapping */
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  white-space: nowrap;
+}
+
+.table-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.action-btn {
+  padding: 6px 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.edit-btn {
+  color: #00ff9d;
+}
+
+.delete-btn {
+  color: #ff5c5c;
+}
+
+.action-btn:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.table-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 4px; /* space for custom scroll */
+}
+
+/* =========================
+   PREMIUM SCROLLBAR
+========================= */
+
+/* Chrome, Edge, Safari */
+.table-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(0,191,255,0.8),
+    rgba(0,140,255,0.8)
+  );
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(0,191,255,1),
+    rgba(0,140,255,1)
+  );
+  box-shadow: 0 0 10px rgba(0,191,255,0.8);
+}
+
+/* Firefox */
+.table-wrapper {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,191,255,0.8) rgba(255,255,255,0.05);
+}
+
+
+.table-left {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.insight-btn {
+  padding: 6px 16px;
+  border-radius: 14px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid rgba(0,191,255,0.5);
+  background: linear-gradient(
+    135deg,
+    rgba(0,191,255,0.25),
+    rgba(0,140,255,0.18)
+  );
+  color: #00bfff;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.insight-btn:hover {
+  box-shadow:
+    0 0 12px rgba(0,191,255,0.7),
+    0 0 25px rgba(0,191,255,0.5);
+  transform: translateY(-2px);
+}
+/* =========================
+   CATEGORY SPLIT STYLING
+========================= */
+
+.category-card h3 {
+  margin-bottom: 20px;
+  font-weight: 800;
+  text-align: center;   /* center align */
+  margin-bottom: 22px;
+  letter-spacing: 0.5px;
+}
+
+.category-card h3 {
+  font-size: 20px;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 22px;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+.category-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  text-align: center;      /* center header */
+  font-size: 13px;
+  opacity: 0.7;
+  margin-bottom: 14px;
+}
+
+
+.category-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  align-items: center;
+  text-align: center;      /* center all data */
+  padding: 10px 12px;
+  border-radius: 10px;
+  transition: 0.3s ease;
+}
+
+
+.category-row:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.category-name {
+  display: flex;
+  align-items: center;
+  
+  gap: 8px;
+}
+
+/* Colored dots */
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.red-dot { background: #ff5c5c; }
+.orange-dot { background: #ff9f43; }
+.blue-dot { background: #4da6ff; }
+.purple-dot { background: #a66cff; }
+.pink-dot { background: #ff4da6; }
+
+/* Alert row background */
+.alert-row {
+  background: rgba(255, 0, 0, 0.08);
+}
+
+@keyframes blinkRed {
+  0% { background: rgba(255, 0, 0, 0.15); }
+  50% { background: rgba(255, 0, 0, 0.35); }
+  100% { background: rgba(255, 0, 0, 0.15); }
+}
+
+.blink-row {
+  animation: blinkRed 1s ease-in-out infinite;
+  border-radius: 12px;
+}
+.dropdown {
+  background: rgba(20, 20, 20, 0.9);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 20px;
+  appearance: none;
+}
+
+.dropdown option {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+/* =========================================
+   MOBILE HEADER - SINGLE ROW COMPACT
+========================================= */
+
+.mobile-icon {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  .dashboard-header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .dashboard-title {
+    text-align: center;
+    font-size: 15px;
+    margin: 0;
+  }
+
+  .header-actions {
+    display: flex;
+    flex-wrap: nowrap;        /* FORCE single row */
+    justify-content: center;
+    align-items: center;
+    gap: 16px;                 /* smaller gap */
+    overflow-x: auto;         /* allow scroll if very small screen */
+    
+  }
+  
+
+  .header-actions::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Smaller icon buttons */
+  .header-actions .glass-btn {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Smaller dropdown */
+  .dropdown {
+    padding: 6px 10px !important;
+    font-size: 13px !important;
+  }
+
+  .desktop-text {
+    display: none;
+  }
+
+  .mobile-icon {
+    display: inline-block;
+    font-size: 18px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+/* =====================================
+   MOBILE – ALL 5 KPI IN ONE ROW
+===================================== */
+@media (max-width: 768px) {
+
+  /* Stack layout */
+  .dashboard-layout {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* Merge KPI sections */
+  .kpi-left,
+  .kpi-right {
+    display: flex !important;
+    gap: 4px !important;
+  }
+
+  /* Make parent behave like single row */
+  .left-panel {
+    display: flex !important;
+    gap: 4px !important;
+  }
+
+  /* Hide right panel wrapper layout */
+  .right-panel {
+    display: contents !important;
+  }
+
+  /* All KPI cards equal */
+  .kpi-card {
+    flex: 1 !important;
+    padding: 4px 2px !important;
+    height: 45px !important;
+    border-radius: 6px !important;
+    text-align: center !important;
+  }
+
+  .kpi-card p {
+    font-size: 7px !important;
+    margin: 0 !important;
+  }
+
+  .kpi-card h3 {
+    font-size: 8px !important;
+    margin: 0 !important;
+  }
+}
+
+.desktop-text {
+  display: inline;
+}
+
+.mobile-icon {
+  display: none;
+}

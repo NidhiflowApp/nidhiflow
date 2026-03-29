@@ -104,11 +104,12 @@ exports.getTopCategories = async (req, res) => {
       date: { $gte: startDate, $lte: endDate },
     });
 
-    const map = {};
-    expenses.forEach(e => {
-      if (!map[e.category]) map[e.category] = 0;
-      map[e.category] += e.amount;
-    });
+const map = {};
+
+expenses.forEach(e => {
+  if (!map[e.category]) map[e.category] = 0;
+  map[e.category] += e.amount;
+});
 
     const result = Object.keys(map)
       .map(cat => ({ label: cat, value: map[cat] }))
@@ -170,11 +171,24 @@ exports.getCategorySplit = async (req, res) => {
 
     const total = expenses.reduce((s, e) => s + e.amount, 0);
 
-    const map = {};
-    expenses.forEach(e => {
-      if (!map[e.category]) map[e.category] = 0;
-      map[e.category] += e.amount;
-    });
+ const map = {};
+
+expenses.forEach(e => {
+  let mainCategory = "Variable Expenses"; // default
+
+  if (e.nature === "fixed") {
+    mainCategory = "Fixed Expenses";
+  } else if (e.nature === "emergency") {
+    mainCategory = "Emergency Fund";
+  } else if (e.nature === "investment") {
+    mainCategory = "Investments";
+  } else if (e.nature === "wants") {
+    mainCategory = "Wants / Buffer";
+  }
+
+  if (!map[mainCategory]) map[mainCategory] = 0;
+  map[mainCategory] += e.amount;
+});
 
     const result = Object.keys(map).map(cat => ({
       label: cat,

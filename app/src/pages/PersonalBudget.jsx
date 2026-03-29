@@ -172,46 +172,83 @@ useEffect(() => {
   const aInvestment = useAnimatedNumber(investment);
 
   /* -------- Category Split -------- */
-  const pct = val => (income ? Math.round((val / income) * 100) : 0);
+ const safePct = (val) =>
+  income ? Math.round((val / income) * 100) : 0;
 
-  const categorySplit = [
-    {
-      label: "Fixed Expenses",
-      planned: 45,
-      actual: pct(expense),
-      dot: "expense",
-      actualClass: pct(expense) > 45 ? "negative" : "positive"
-    },
-    {
-      label: "Variable Expenses",
-      planned: 25,
-      actual: pct(expense),
-      dot: "expense",
-      actualClass: pct(expense) > 25 ? "negative" : "positive"
-    },
-    {
-      label: "Emergency Fund",
-      planned: 10,
-      actual: 8,
-      dot: "emergency",
-      actualClass: 8 > 10 ? "negative" : "positive"
-    },
-    {
-      label: "Investments",
-      planned: 15,
-      actual: pct(investment),
-      dot: "investment",
-      actualClass: pct(investment) > 15 ? "negative" : "positive"
-    },
-    {
-      label: "Wants / Buffer",
-      planned: 5,
-      actual: 12,
-      dot: "buffer",
-      actualClass: 12 > 5 ? "negative" : "positive"
-    }
-  ];
-
+const categorySplit = [
+  {
+    label: "Fixed Expenses",
+    planned: 45,
+    actual: safePct(
+      transactions
+        .filter(t => t.nature === "fixed")
+        .reduce((s, t) => s + t.amount, 0)
+    ),
+    dot: "expense",
+    actualClass:
+      safePct(
+        transactions
+          .filter(t => t.nature === "fixed")
+          .reduce((s, t) => s + t.amount, 0)
+      ) > 45
+        ? "negative"
+        : "positive"
+  },
+  {
+    label: "Variable Expenses",
+    planned: 25,
+    actual: safePct(
+      transactions
+        .filter(t => !t.nature || t.nature === "variable")
+        .reduce((s, t) => s + t.amount, 0)
+    ),
+    dot: "expense",
+    actualClass:
+      safePct(
+        transactions
+          .filter(t => !t.nature || t.nature === "variable")
+          .reduce((s, t) => s + t.amount, 0)
+      ) > 25
+        ? "negative"
+        : "positive"
+  },
+  {
+    label: "Emergency Fund",
+    planned: 10,
+    actual: safePct(
+      transactions
+        .filter(t => t.nature === "emergency")
+        .reduce((s, t) => s + t.amount, 0)
+    ),
+    dot: "emergency",
+    actualClass:
+      safePct(
+        transactions
+          .filter(t => t.nature === "emergency")
+          .reduce((s, t) => s + t.amount, 0)
+      ) > 10
+        ? "negative"
+        : "positive"
+  },
+  {
+    label: "Investments",
+    planned: 10,
+    actual: safePct(
+      transactions
+        .filter(t => t.nature === "investment")
+        .reduce((s, t) => s + t.amount, 0)
+    ),
+    dot: "investment",
+    actualClass:
+      safePct(
+        transactions
+          .filter(t => t.nature === "investment")
+          .reduce((s, t) => s + t.amount, 0)
+      ) > 10
+        ? "negative"
+        : "positive"
+  }
+];
 
   /* -------- Date Formatter -------- */
   const formatDate = (dateString) => {

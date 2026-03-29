@@ -1,0 +1,21 @@
+/* Mobile wrapper only */
+
+.mobile-income-modal-wrapper .modal-overlay {
+  padding: 16px;
+  align-items: center;
+}
+
+.mobile-income-modal-wrapper .modal-card {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* stack desktop grid for mobile */
+
+@media (max-width: 768px) {
+
+  .mobile-income-modal-wrapper .modal-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+}
